@@ -36,12 +36,14 @@ h4{
 .container-information-movie{
     padding: 30px 20px 30px 20px;
     display: flex;
+    flex-flow: wrap row;
 }
 
 .main-image-movie{
     width: 200px;
     height: 300px;
     flex: none;
+    margin-right: 50px;
 }
 
 .main-image-movie img{
@@ -50,7 +52,6 @@ h4{
 }
 
 .information-text{
-    margin-left: 50px;
     flex: 8;
 }
 
