@@ -75,29 +75,37 @@ const MovieDetails = (props) => {
                             <p key={element.name}>{element.name}</p>
                         ))}
                     </div>
-                    <div className="array-data-information">
+                    <div className="title-array-data">
                         <p>Actor:</p>
-                        {actor?.talents?.talent.map((element) => (
-                            <p key={element.name} className="square-border">{element.name}</p>
-                        ))}
+                        <div className="array-data-information">
+                            {actor?.talents?.talent.map((element) => (
+                                <p key={element.name} className="square-border">{element.name}</p>
+                            ))}
+                        </div>
                     </div>
-                    <div className="array-data-information">
+                    <div className="title-array-data">
                         <p>Director:</p>
-                        {director?.talents?.talent.map((element) => (
-                            <p key={element.name} className="square-border">{element.name}</p>
-                        ))}
+                        <div className="array-data-information">
+                            {director?.talents?.talent.map((element) => (
+                                <p key={element.name} className="square-border">{element.name}</p>
+                            ))}
+                        </div>
                     </div>
-                    <div className="array-data-information">
+                    <div className="title-array-data">
                         <p>Producer:</p>
-                        {producer?.talents?.talent.map((element) => (
-                            <p key={element.name} className="square-border">{element.name}</p>
-                        ))}
+                        <div className="array-data-information">
+                            {producer?.talents?.talent.map((element) => (
+                                <p key={element.name} className="square-border">{element.name}</p>
+                            ))}
+                        </div>
                     </div>
-                    <div className="array-data-information">
+                    <div className="title-array-data">
                         <p>Escritor:</p>
-                        {writer?.talents?.talent.map((element) => (
-                            <p key={element.name} className="square-border">{element.name}</p>
-                        ))}
+                        <div className="array-data-information">                            
+                            {writer?.talents?.talent.map((element) => (
+                                <p key={element.name} className="square-border">{element.name}</p>
+                            ))}
+                        </div>
                     </div>
                     <div>
                         <p>{'Titulo Original: '+detailsMovie?.extendedcommon?.media?.originaltitle}</p>

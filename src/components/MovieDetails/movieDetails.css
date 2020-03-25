@@ -64,9 +64,17 @@ h4{
     font-weight: 700;
 }
 
+.title-array-data{
+    display: flex;
+}
+
+.title-array-data p{
+    margin-right: 10px;
+}
+
 .array-data-information{
     display: flex;
-    align-items: center;
+    flex-flow: wrap row;
 }
 
 .array-data-information p{
