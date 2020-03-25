@@ -26,12 +26,11 @@ const Header = () => {
         filterMovie({search, movies});
     }
 
-    //const movies = useSelector( state => state.movies.movies)
-    //console.log(movies);
+    //this header is made it with bootstrap
     return(
         <nav className = "navbar navbar-expand-lg navbar-dark">
             <div className="justify-content-evenly container">
-                <div className="logo-container pb-4">
+                <div className="pb-4">
                     <img src="https://www.clarovideo.com/webclient/sk_core/images/clarovideo-logo-sitio.svg" alt="logo" className="logo hidden-xs" />
                 </div>
             </div>
