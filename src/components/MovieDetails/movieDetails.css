@@ -51,6 +51,7 @@ h4{
 
 .information-text{
     margin-left: 50px;
+    flex: 8;
 }
 
 .basic-information{
@@ -62,10 +63,16 @@ h4{
     font-weight: 700;
 }
 
-.genres{
+.array-data-information{
     display: flex;
+    align-items: center;
 }
 
-.genres p{
+.array-data-information p{
     margin-right: 15px;
+}
+
+.square-border{
+    border: 1px solid;
+    padding: 2px 8px;
 }

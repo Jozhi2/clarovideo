@@ -13,41 +13,37 @@ const MovieDetails = (props) => {
     //get id for get the movie
     let params = useParams();
 
+    //get details movie state
+    const detailsMovie = useSelector( state => state.movies.detailMovie)
+
     useEffect(() => {
         //call the api
         const loadDataMovie = (movie) => dispatch( getDetailsMovieAction(movie) );
         loadDataMovie(params.id);
     }, [])
     
-    let imgUrl = "https://clarovideocdn7.clarovideo.net/PELICULAS/AFGHANLUKE/EXPORTACION_WEB/SS/AFGHANLUKEWVERTICAL.jpg?size=200x300"
-    let title = "Afghan Luke: Verdad oculta";
-    let code = "PG-13";
-    let description_extended = "Un grupo de seis adolescentes de Los Ángeles, muy dolidos por una trágica pérdida, se reúnen solo para descubrir que sus padres pueden estar ocultando un terrible secreto que trastorna su mundo.";
-    let year = "2017";
-    let duration = "00:53:05"
-    let originaltitle = "Runaways"
-    let genre = [
-        {
-            "id": "52540",
-            "name": "TV Series",
-            "desc": "Series"
-        },
-        {
-            "id": "51131",
-            "name": "Action",
-            "desc": "Acción"
-        },
-        {
-            "id": "51105",
-            "name": "Drama",
-            "desc": "Drama"
-        },
-        {
-            "id": "51220",
-            "name": "Sci-Fi",
-            "desc": "Ciencia ficción"
-        }
-    ]
+    //get job object 
+    let getJob = (detailsMovie, job) => {
+        const jobPerson = detailsMovie?.extendedcommon?.roles?.role?.find(element => {
+            if(element.name === job){
+                return element;
+            }
+        })
+        return jobPerson;
+    }
+
+    //get actor job object
+    const actor = getJob(detailsMovie, "Actor");
+
+    //get director job object
+    const director = getJob(detailsMovie, "Director");
+
+    //get producer job object
+    const producer = getJob(detailsMovie, "Producer");
+
+    //get producer job object
+    const writer = getJob(detailsMovie, "Writer");
+    
     return(
         <div className="movie-card-details-container">
             <div className="back-header">
@@ -61,26 +57,50 @@ const MovieDetails = (props) => {
             </div>
             <div className="container-information-movie">
                 <figure className="main-image-movie">
-                    <img src={imgUrl} />
+                    <img src={detailsMovie.image_medium} />
                 </figure>
                 <div className="information-text">
-                    <h4>{title}</h4>
+                    <h4>{detailsMovie.title}</h4>
                     <div className="basic-information">
-                        <p>{'('+year+')'}</p>
-                        <p>{duration}</p>
-                        <p>{code}</p>
+                        <p>{'('+detailsMovie?.extendedcommon?.media?.publishyear+')'}</p>
+                        <p>{detailsMovie?.extendedcommon?.media?.duration}</p>
+                        <p>{detailsMovie?.extendedcommon?.media?.rating?.code}</p>
                     </div>
                     <div className="description">
-                        <p>{description_extended}</p>
+                        <p>{detailsMovie?.extendedcommon?.media?.description_extended}</p>
                     </div>
-                    <div className="genres">
-                        <p>Géneros: </p>
-                        {genre?.map((element) => (
+                    <div className="array-data-information">
+                        <p>Géneros:</p>
+                        {detailsMovie?.extendedcommon?.genres?.genre?.map((element) => (
                             <p key={element.name}>{element.name}</p>
                         ))}
                     </div>
+                    <div className="array-data-information">
+                        <p>Actor:</p>
+                        {actor?.talents?.talent.map((element) => (
+                            <p key={element.name} className="square-border">{element.name}</p>
+                        ))}
+                    </div>
+                    <div className="array-data-information">
+                        <p>Director:</p>
+                        {director?.talents?.talent.map((element) => (
+                            <p key={element.name} className="square-border">{element.name}</p>
+                        ))}
+                    </div>
+                    <div className="array-data-information">
+                        <p>Producer:</p>
+                        {producer?.talents?.talent.map((element) => (
+                            <p key={element.name} className="square-border">{element.name}</p>
+                        ))}
+                    </div>
+                    <div className="array-data-information">
+                        <p>Escritor:</p>
+                        {writer?.talents?.talent.map((element) => (
+                            <p key={element.name} className="square-border">{element.name}</p>
+                        ))}
+                    </div>
                     <div>
-                        <p>{'Titulo Original: '+originaltitle}</p>
+                        <p>{'Titulo Original: '+detailsMovie?.extendedcommon?.media?.originaltitle}</p>
                     </div>
                 </div>
             </div>

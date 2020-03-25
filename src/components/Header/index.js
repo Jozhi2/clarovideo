@@ -11,6 +11,8 @@ const Header = () => {
 
     //call the action
     const filterMovie = (movieFilter) => dispatch( filterMovieAction(movieFilter) )
+    
+    //get filtered movies state
     const movies = useSelector( state => state.movies.movies)
 
     //define filter

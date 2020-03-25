@@ -102,9 +102,23 @@ const getMovieError = () => ({
     payload: true
 })
 
+//Get details movie from claro video API
 export function getDetailsMovieAction(movie){
     return async(dispatch) => {
-        console.log(movie)
+        dispatch( getDataMovie() )
+        //this is one way to get the result with axios
+        clientAxios.get('/services/content/data?device_id=web&device_category=web&device_model=web&device_type=web&format=json&device_manufacturer=generic&authpn=webclient&authpt=tfg1h3j4k6fd7&api_version=v5.86&region=mexico&HKS=9s5hqq76r3g6sg4jb90l38us52&user_id=22822863', {
+            params:{
+                group_id: movie
+            }
+        })
+        .then((response) => {
+            dispatch( getDataMovieSuccess(response.data.response.group.common) )
+        })
+        .catch((error)=>{
+            console.log(error);
+            dispatch( getDataMovieError() )
+        })
     }
 }
 
