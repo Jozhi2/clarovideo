@@ -16,6 +16,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+### `npm test -- --coverage`
+
+Watch the coverage and the unit test from the app
+
 ### `npm build`
 
 Builds the app for production to the `build` folder.<br />
