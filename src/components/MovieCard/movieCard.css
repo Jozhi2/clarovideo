@@ -1,0 +1,43 @@
+.movie-card{
+    float: left;
+    margin: 0 0 15px 0px;
+}
+
+.item-card{
+    clear: both;
+    position: relative;
+}
+
+.item-card img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.content-play{
+    display: none;
+}
+
+.item-card:hover .content-play{
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: gray;
+    opacity: 0.5;
+}
+
+.item-card:hover .position-content-play{
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+}
+
+@media (min-width: 609px){
+    .movie-card{
+        width: 290px;
+    }
+}

@@ -1,0 +1,40 @@
+.content-cards{
+    display: flex;
+    justify-content: center;
+}
+
+.content-movies{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/* .content-movies::after {
+    content: '';
+    flex: auto;
+} */
+
+@media (max-width: 609px){
+    .content-movies{
+        justify-content: center;
+    }
+}
+
+@media (min-width: 630px){
+    .content-movies{
+        width: 630px;
+    }
+}
+
+@media (min-width: 951px){
+    .content-movies{
+        width: 961px;
+    }
+}
+
+@media (min-width: 1220px){
+    .content-movies{
+        width: 100%;
+    }
+}
