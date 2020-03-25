@@ -21,8 +21,6 @@ export function filterMovieAction(movie){
                 return element;
             }
         });
-        //lenght to know if there are results
-        //console.log(moviesWithFilterTitle.length)
         dispatch ( filterMovieSuccess(moviesWithFilterTitle));
     }
 }
@@ -78,12 +76,6 @@ export function getMoviesAction(){
             console.log(error)
             dispatch( getMovieError() )
         });
-        
-        // try{
-        //     dispatch( getMovieSuccess(true) )
-        // } catch(error){
-        //     dispatch( getMovieError(true) )
-        // }
     }
 }
 
